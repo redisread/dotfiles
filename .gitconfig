@@ -6,7 +6,3 @@
 
 [include]
 	path = ~/.gitconfig.user
-[http]
-	proxy = http://127.0.0.1:12345
-[https]
-	proxy = http://127.0.0.1:12345
