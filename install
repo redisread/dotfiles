@@ -140,7 +140,7 @@ echo
 if [ "${DEBUG}" == "1" ]; then
     cp -R "${PWD}/." "${clone_path}"
 else
-    git clone https://github.com/nickjj/dotfiles "${clone_path}"
+    git clone https://github.com/redisread/dotfiles.git  "${clone_path}"
 fi
 
 ###############################################################################
