@@ -278,7 +278,7 @@ git clone --depth=1 https://github.com.cnpmjs.org/asdf-vm/asdf.git --branch "${i
 . "${HOME}/.local/share/asdf/asdf.sh"
 
 printf "\n\nInstalling node %s...\n" "${install_node_version}"
-
+# TODO  可能需要卸载原来的node，升级node和npm
 "${HOME}/.local/share/asdf/bin/asdf" plugin add nodejs || true
 "${HOME}/.local/share/asdf/bin/asdf" install nodejs "${install_node_version}"
 "${HOME}/.local/share/asdf/bin/asdf" global nodejs "${install_node_version}"
