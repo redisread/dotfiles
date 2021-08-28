@@ -25,11 +25,11 @@ System package installation isn't supported with your OS / distro.
 
 Please install any dependent packages on your own. You can view the list at:
 
-    https://github.com/nickjj/dotfiles/blob/master/install
+    https://github.com.cnpmjs.org/nickjj/dotfiles/blob/master/install
 
 Then re-run the script and explicitly skip installing system packages:
 
-    bash <(curl -sS https://raw.githubusercontent.com/nickjj/dotfiles/master/install) --skip-system-packages
+    bash <(curl -sS https://raw.staticdn.net/nickjj/dotfiles/master/install) --skip-system-packages
 EOF
 
 exit 1
@@ -63,7 +63,7 @@ function apt_install_packages {
 }
 
 function brew_install_self {
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.staticdn.net/Homebrew/install/HEAD/install.sh)"
 }
 
 function brew_install_packages {
@@ -123,12 +123,13 @@ fi
 read -rep $'\nWhere do you want to clone these dotfiles to [~/dotfiles]? ' clone_path
 clone_path="${clone_path:-"${HOME}/dotfiles"}"
 
+has_file=0
 # Ensure path doesn't exist.
 while [ -e "${clone_path}" ]; do
     read -rep $'\nPath exists, try again? (y) ' y
     case "${y}" in
         [Yy]*)
-
+            has_file=1
             break;;
         *) echo "Please answer y or CTRL+c the script to abort everything";;
     esac
@@ -137,10 +138,10 @@ done
 echo
 
 # This is used to locally develop the install script.
-if [ "${DEBUG}" == "1" ]; then
+if [ has_file == 0 ] && [ "${DEBUG}" == "1" ]; then
     cp -R "${PWD}/." "${clone_path}"
-else
-    git clone https://github.com/nickjj/dotfiles "${clone_path}"
+elif [ has_file == 1 ]; then
+    git clone --depth=1 https://github.com.cnpmjs.org/redisread/dotfiles.git  "${clone_path}"
 fi
 
 ###############################################################################
@@ -168,21 +169,21 @@ cp "${clone_path}/.gitconfig.user" "${HOME}/.gitconfig.user"
 ###############################################################################
 
 curl -fLo "${HOME}/.vim/autoload/plug.vim" --create-dirs \
-  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  https://raw.staticdn.net/junegunn/vim-plug/master/plug.vim
 
 ###############################################################################
 # Install tpm (tmux plugin manager)
 ###############################################################################
 
 rm -rf "${HOME}/.tmux/plugins/tpm"
-git clone --depth 1 https://github.com/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
+git clone --depth=1 https://github.com.cnpmjs.org/tmux-plugins/tpm "${HOME}/.tmux/plugins/tpm"
 
 ###############################################################################
 # Install fzf (fuzzy finder on the terminal and used by a Vim plugin)
 ###############################################################################
 
 rm -rf "${HOME}/.local/share/fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git "${HOME}/.local/share/fzf" \
+git clone --depth=1 --depth 1 https://github.com.cnpmjs.org/junegunn/fzf.git "${HOME}/.local/share/fzf" \
   && yes | "${HOME}/.local/share/fzf/install" --bin --no-update-rc
 
 ###############################################################################
@@ -262,7 +263,7 @@ fi
 printf "\n\nInstalling asdf %s...\n" "${install_asdf_version}"
 
 rm -rf "${HOME}/.local/share/asdf"
-git clone --depth 1 https://github.com/asdf-vm/asdf.git --branch "${install_asdf_version}" \
+git clone --depth=1 https://github.com.cnpmjs.org/asdf-vm/asdf.git --branch "${install_asdf_version}" \
   "${HOME}/.local/share/asdf"
 
 # shellcheck disable=SC1090
@@ -302,7 +303,7 @@ Everything was installed successfully!
 
 Check out the README file on GitHub to do 1 quick thing manually:
 
-https://github.com/nickjj/dotfiles#did-you-install-everything-successfully
+https://github.com.cnpmjs.org/nickjj/dotfiles#did-you-install-everything-successfully
 
 You can safely close this terminal.
 
