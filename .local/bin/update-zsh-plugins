@@ -9,8 +9,8 @@ function clone_or_pull {
     local project_path="${XDG_DATA_HOME}/${project}"
     if cd "${project_path}" > /dev/null 2>&1; then
         echo "Updating ${repo_path}..."
-        git config remote.origin.url https://github.com"${repo_path}"
-        git config url."https://hub.fastgit.org".insteadOf https://github.com
+       # git config remote.origin.url https://github.com"${repo_path}"
+        #git config url."https://hub.fastgit.org".insteadOf https://github.com
         git pull
         echo
         cd - > /dev/null 2>&1
