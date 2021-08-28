@@ -12,14 +12,15 @@ function centosMirros(){
 }
 
 function ubuntuMirros(){
-
+  echo "ubuntuMirros"
 
 }
 function main(){
-  if [ ! -d "/etc/redhat-release"]; then
-    centosMirros
-  else
+  if [ ! -d "/etc/redhat-release" ]; then
     ubuntuMirros
+  else
+    centosMirros
+  fi
 }
 
 main
