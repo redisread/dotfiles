@@ -6,7 +6,7 @@ skip_system_packages="${1}"
 
 os_type="$(uname -s)"
 
-apt_packages="curl git iproute2 python3-pip ripgrep tmux vim-gtk zsh"
+apt_packages="curl git iproute2 python3-pip tmux vim-gtk zsh"
 apt_packages_optional="gnupg htop jq pass pwgen rsync shellcheck unzip"
 
 brew_packages="git python ripgrep tmux vim zsh"
@@ -60,6 +60,15 @@ esac
 function apt_install_packages {
     # shellcheck disable=SC2086
     sudo apt-get update && sudo apt-get install -y ${apt_packages} ${apt_packages_optional}
+    . /etc/lsb-release
+    if [ $DISTRIB_RELEASE == "16.04" || $DISTRIB_RELEASE == "18.04"  ]; then
+        git clone https://github.com/BurntSushi/ripgrep /opt/ripgrep
+        cd /opt/ripgrep
+        cargo build --release
+        ln -s /opt/ripgrep/target/release/rg /usr/local/bin/rg
+    else
+        apt-get install ripgrep -y
+    fi
 }
 
 function brew_install_self {
