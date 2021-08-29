@@ -640,7 +640,9 @@ let g:limelight_conceal_ctermfg=244
 
 let g:mkdp_auto_close=0
 let g:mkdp_refresh_slow=1
-let g:mkdp_markdown_css=fnameescape($HOME).'/.local/lib/github-markdown-css/github-markdown.css'
+" Markdown样式
+" let g:mkdp_markdown_css=fnameescape($HOME).'/.local/lib/github-markdown-css/github-markdown.css'
+let g:mkdp_markdown_css = '/Users/victor/.vim/github-markdown.css'
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
@@ -648,7 +650,9 @@ let g:mkdp_preview_options = {
     \ 'maid': {},
     \ 'disable_sync_scroll': 0,
     \ 'sync_scroll_type': 'middle',
-    \ 'hide_yaml_meta': 1
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {}
     \ }
 let g:mkdp_page_title = '「${name}」'
 
