@@ -212,7 +212,7 @@ ln -fs "${clone_path}/.vim/spell/en.utf-8.add" "${HOME}/.vim/spell/en.utf-8.add"
 ln -fs "${clone_path}/.tmux.conf" "${HOME}/.tmux.conf"
 ln -fs "${clone_path}/.local/bin/update-zsh-plugins" "${HOME}/.local/bin/update-zsh-plugins"
 ln -fs "${clone_path}/.local/bin/set-theme" "${HOME}/.local/bin/set-theme"
-
+ln -fs "${clone_path}/md_snippits.vim" "${HOME}/.vim/md_snippits.vim"
 # And if you happen to be using WSL:
 sudo ln -fs "${clone_path}/etc/wsl.conf" /etc/wsl.conf
 
@@ -250,6 +250,7 @@ ln -fs "${clone_path}/.zshenv" "${HOME}/.zshenv" \
     && ln -fs "${clone_path}/.tmux.conf" "${HOME}/.tmux.conf" \
     && ln -fs "${clone_path}/.local/bin/update-zsh-plugins" "${HOME}/.local/bin/update-zsh-plugins" \
     && ln -fs "${clone_path}/.local/bin/set-theme" "${HOME}/.local/bin/set-theme"
+    && ln -fs "${clone_path}/md_snippits.vim" "${HOME}/.vim/md_snippits.vim"
 
 if grep -qE "(Microsoft|microsoft|WSL)" /proc/version &>/dev/null; then
     sudo ln -fs "${clone_path}/etc/wsl.conf" /etc/wsl.conf

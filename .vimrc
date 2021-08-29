@@ -103,7 +103,12 @@ Plug 'ekalinin/dockerfile.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'Glench/Vim-Jinja2-Syntax'
 Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
+" Markdown插件
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
+Plug 'vimwiki/vimwiki'
+
+
 Plug 'jvirtanen/vim-hcl'
 Plug 'lifepillar/pgsql.vim'
 Plug 'othree/html5.vim'
@@ -187,7 +192,8 @@ let &statusline = s:statusline_expr()
 " Basic Settings
 "   Research any of these by running :help <setting>
 " -----------------------------------------------------------------------------
-
+" 要定义一个使用 "mapleader" 变量的映射，可以使用特殊字串 "<Leader>"。它会被
+" mapleader" 的字串值所替换
 let mapleader=" "
 let maplocalleader=" "
 
@@ -274,6 +280,7 @@ inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
 
 " Navigate around splits with a single key combo.
+" 上下左右移动短语 Ctrl+l 映射为Ctrl+w + Ctrl+l
 nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 nnoremap <C-k> <C-w><C-k>
@@ -284,6 +291,7 @@ nnoremap <S-Tab> <C-w>w
 
 " Press * to search for the term under the cursor or a visual selection and
 " then press a key below to replace all instances of it in the current file.
+" <Leader>被映射为空格，执行空格+r，会执行:%s///g,然后左移两格，<Left>表示左移一格
 nnoremap <Leader>r :%s///g<Left><Left>
 nnoremap <Leader>rc :%s///gc<Left><Left><Left>
 
@@ -633,6 +641,16 @@ let g:limelight_conceal_ctermfg=244
 let g:mkdp_auto_close=0
 let g:mkdp_refresh_slow=1
 let g:mkdp_markdown_css=fnameescape($HOME).'/.local/lib/github-markdown-css/github-markdown.css'
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1
+    \ }
+let g:mkdp_page_title = '「${name}」'
 
 " .............................................................................
 " SirVer/ultisnips
@@ -662,3 +680,36 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-a> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-v> :TestVisit<CR>
+
+" some my seeting
+" Save & quit
+map Q :q<CR>
+map S :w<CR>
+
+" split the screens to up (horizontal), down (horizontal), left (vertical), right (vertical)
+map su :set nosplitbelow<CR>:split<CR>:set splitbelow<CR>
+map se :set splitbelow<CR>:split<CR>
+map sn :set nosplitright<CR>:vsplit<CR>:set splitright<CR>
+
+" Press space twice to jump to the next '<++>' and edit itDavid Chen, 2 years ago: • huge arrange, ultisnip
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4i
+
+" Markdown快捷键
+source ~/.vim/md_snippits.vim
+
+" ===
+" === vim-table-mode
+" ===
+map <LEADER>tm :TableModeToggle<CR>
+
+" ===David Chen, 2 years ago: • huge arrange, ultisnip
+" === Tab management
+" ===
+" Create a new tab with tu
+map tu :tabe<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
+" Move around tabs with tn and tiDavid Chen, 2 years ago: • huge arrange, ultisnip
+map tn :-tabnext<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
+map ti :+tabnext<CR>
+" Move the tabs with tmn and tmiDavid Chen, 2 years ago: • huge arrange, ultisnip
+map tmn :-tabmove<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
+map tmi :+tabmove<CR>
