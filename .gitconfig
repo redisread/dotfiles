@@ -6,8 +6,6 @@
 
 [include]
 	path = ~/.gitconfig.user
-[url "https://github.com.cnpmjs.org"]
-	insteadOf = https://github.com
 [user]
 	name = redisread
 	email = wujiahong19981022@outlook.com
