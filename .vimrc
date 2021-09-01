@@ -706,14 +706,15 @@ source ~/.vim/md_snippits.vim
 " ===
 map <LEADER>tm :TableModeToggle<CR>
 
+
 " ===David Chen, 2 years ago: • huge arrange, ultisnip
 " === Tab management
 " ===
 " Create a new tab with tu
-map tu :tabe<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
+map tu :tabe<CR>
 " Move around tabs with tn and tiDavid Chen, 2 years ago: • huge arrange, ultisnip
-map tn :-tabnext<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
+map tn :-tabnext<CR>
 map ti :+tabnext<CR>
 " Move the tabs with tmn and tmiDavid Chen, 2 years ago: • huge arrange, ultisnip
-map tmn :-tabmove<CR>David Chen, 2 years ago: • NERDTree and other plugins with partial READM…
-map tmi :+tabmove<CR>
+" map tmn :-tabmove<CR>
+" map tmi :+tabmove<CR>
