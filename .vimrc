@@ -107,6 +107,7 @@ Plug 'godlygeek/tabular' | Plug 'tpope/vim-markdown'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install' }
 Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle' }
 Plug 'vimwiki/vimwiki'
+Plug 'dkarter/bullets.vim'
 
 
 Plug 'jvirtanen/vim-hcl'
@@ -718,3 +719,11 @@ map ti :+tabnext<CR>
 " Move the tabs with tmn and tmiDavid Chen, 2 years ago: • huge arrange, ultisnip
 " map tmn :-tabmove<CR>
 " map tmi :+tabmove<CR>
+"
+"
+" Bullets.vim
+let g:bullets_enabled_file_types = [
+    \ 'markdown',
+    \ 'text',
+    \ 'gitcommit',
+    \]
