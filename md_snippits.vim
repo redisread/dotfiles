@@ -36,3 +36,18 @@ autocmd Filetype markdown inoremap <buffer> <silent> ,3 ###<Space><Enter><++><Es
 autocmd Filetype markdown inoremap <buffer> <silent> ,4 ####<Space><Enter><++><Esc>kA
 " 插入当前时间
 autocmd Filetype markdown inoremap <buffer> <silent> ,t <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
+
+
+"  格式快捷键
+"  添加notice
+"  suceeess
+autocmd Filetype markdown inoremap <buffer> <silent> ,ns <div class="notices success"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,ni <div class="notices info"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,nw <div class="notices warning"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,ne <div class="notices error"><Enter><Enter></div><Enter><++><Esc>2kI
+
+" 添加alert
+autocmd Filetype markdown inoremap <buffer> <silent> ,aw <div class="alert alert-warning" role="alert"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,ai <div class="alert alert-info" role="alert"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,as <div class="alert alert-success" role="alert"><Enter><Enter></div><Enter><++><Esc>2kI
+autocmd Filetype markdown inoremap <buffer> <silent> ,ae <div class="alert alert-error" role="alert"><Enter><Enter></div><Enter><++><Esc>2kI
